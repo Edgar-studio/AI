@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { dummyCreationData } from "../assets/assets.js";
 import { GemIcon, Sparkles } from "lucide-react";
 import { Protect } from "@clerk/clerk-react";
+import CreationItem from "../components/CreationItem.jsx";
 
 const Dashboard = () => {
     const [creations, setCreations] = useState([]);
@@ -41,6 +42,14 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="space-y-3">
+               <p className="mt-6 mb-4">Recent Creations</p>
+                {
+                    creations.map((item) => <CreationItem key={item.id}  item={item} />)
+                }
+            </div>
+
         </div>
     );
 };
